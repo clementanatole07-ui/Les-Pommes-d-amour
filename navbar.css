@@ -1,5 +1,5 @@
 :root {
-  --nav-bg: #14171c;
+  --nav-bg: #223324;
   --nav-fg: #f5f3ee;
   --nav-accent: #ff5b35;
   --nav-height: 64px;
@@ -119,4 +119,42 @@
     border-radius: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
+}
+
+body {
+  background-image: url('Images-site/image_2302234_20260601_ob_ed004e_img-1436.jpg');
+  background-size: cover;      /* couvre tout l'écran */
+  background-position: center; /* centré */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* parallaxe légère au scroll */
+}
+
+.hero {
+  background-image: url('/Images-site/image_2302234_20180610_ob_6f26b7_dsc-0351.JPG');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+
+  /* Assombrit l'image pour que le texte soit lisible */
+  position: relative;
+}
+
+/* Overlay sombre par-dessus l'image, sous le texte */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Le texte passe au-dessus de l'overlay */
+.hero h1,
+.hero p {
+  position: relative;
+  color: white;
+  z-index: 1;
 }
