@@ -1,7 +1,7 @@
 :root {
   --nav-bg: #223324;
   --nav-fg: #f5f3ee;
-  --nav-accent: #ff5b35;
+  --nav-accent: #d9ff41;
   --nav-height: 64px;
 }
 
@@ -157,4 +157,441 @@ body {
   position: relative;
   color: white;
   z-index: 1;
+}
+
+/* ── Contact ── */
+.contact-page {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+.contact-header {
+  margin-bottom: 40px;
+}
+
+.contact-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.contact-header p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+label .required {
+  color: #5a7a3a;
+  margin-left: 2px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #d6cfc2;
+  border-radius: 10px;
+  font-size: 0.97rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #5a7a3a;
+  box-shadow: 0 0 0 3px rgba(90, 122, 58, 0.15);
+}
+
+input::placeholder, textarea::placeholder {
+  color: #b0a898;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.btn-submit {
+  padding: 14px 28px;
+  background: #5a7a3a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.btn-submit:hover { background: #3f5a28; }
+.btn-submit:active { transform: scale(0.98); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.feedback {
+  display: none;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.feedback.success {
+  background: #eaf3e1;
+  color: #3f5a28;
+  border: 1.5px solid #b8d99a;
+}
+
+.feedback.error {
+  background: #fdecea;
+  color: #8b2020;
+  border: 1.5px solid #f5b7b1;
+}
+
+@media (max-width: 520px) {
+  .form-row { grid-template-columns: 1fr; }
+  .contact-header h1 { font-size: 1.6rem; }
+}
+
+/* ── Légumes de saison ── */
+.saison-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+.saison-header {
+  margin-bottom: 48px;
+}
+
+.saison-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.saison-header p {
+  font-size: 1rem;
+  color: #7a6e5f;
+}
+
+.legumes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+.legume-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.legume-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+}
+
+.legume-img {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.legume-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #5a7a3a;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.legume-body {
+  padding: 20px 22px 24px;
+}
+
+.legume-body h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.legume-body p {
+  font-size: 0.93rem;
+  color: #7a6e5f;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.mois {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mois-tag {
+  background: #eaf3e1;
+  color: #3f5a28;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+@media (max-width: 520px) {
+  .legumes-grid { grid-template-columns: 1fr; }
+  .saison-header h1 { font-size: 1.6rem; }
+}
+
+.saison-page {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 60px 24px 80px;
+}
+
+/* CSS ACCUEIL !!!!! */
+
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  height: 92vh;
+  min-height: 500px;
+  background-image: url('Images-site/ferme.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 0 24px;
+  color: white;
+}
+
+.hero-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 16px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 36px;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #5a7a3a;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.hero-btn:hover { background: #3f5a28; }
+.hero-btn:active { transform: scale(0.98); }
+
+/* ── Présentation ── */
+.presentation {
+  background: #f7f4ee;
+  padding: 80px 24px;
+}
+
+.presentation-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.section-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5a7a3a;
+  margin-bottom: 14px;
+}
+
+.presentation-text h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #2b2416;
+  margin-bottom: 24px;
+}
+
+.presentation-text p {
+  font-size: 1rem;
+  color: #7a6e5f;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.presentation-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 13px 28px;
+  border: 2px solid #5a7a3a;
+  color: #5a7a3a;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 0.97rem;
+  font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.presentation-btn:hover {
+  background: #5a7a3a;
+  color: white;
+}
+
+.presentation-photo {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.presentation-photo img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .presentation-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .presentation-photo { order: -1; }
+
+  .presentation-photo img { height: 280px; }
+
+  .presentation-text h2 { font-size: 1.4rem; }
+}
+
+
+
+
+/* ── À propos ── */
+.about-page {
+  min-height: 100vh;
+  background-image: url('images/maraicher.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+}
+
+.about-bloc {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(5px);
+  border-radius: 16px;
+  max-width: 680px;
+  width: 100%;
+  padding: 52px 48px;
+  text-align: center;
+}
+
+.about-bloc .section-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5a7a3a;
+  margin-bottom: 12px;
+}
+
+.about-bloc h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2b2416;
+  margin-bottom: 28px;
+}
+
+.about-bloc p {
+  font-size: 1rem;
+  color: #5a4f42;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.about-bloc p:last-child { margin-bottom: 0; }
+
+@media (max-width: 520px) {
+  .about-bloc { padding: 32px 24px; }
+  .about-bloc h1 { font-size: 1.5rem; }
 }

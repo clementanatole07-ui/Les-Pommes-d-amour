@@ -19,5 +19,94 @@
   
 
   <script src="navbar.js"></script>
+
+  <div id="navbar-placeholder"></div>
+
+<div class="contact-page">
+  <div class="contact-header">
+    <h1>Nous contacter</h1>
+    <p>On vous répond sous 48h.</p>
+  </div>
+
+  <form class="contact-form" id="contact-form" novalidate>
+    <div class="form-row">
+      <div class="field">
+        <label for="nom">Nom <span class="required">*</span></label>
+        <input type="text" id="nom" name="nom" placeholder="Dupont" required>
+      </div>
+      <div class="field">
+        <label for="prenom">Prénom <span class="required">*</span></label>
+        <input type="text" id="prenom" name="prenom" placeholder="Marie" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="email">Email <span class="required">*</span></label>
+      <input type="email" id="email" name="email" placeholder="vous@exemple.fr" required>
+    </div>
+
+    <div class="field">
+      <label for="telephone">Téléphone</label>
+      <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78">
+    </div>
+
+    <div class="field">
+      <label for="message">Message <span class="required">*</span></label>
+      <textarea id="message" name="message" placeholder="Écrivez votre message…" required></textarea>
+    </div>
+
+    <div class="feedback success" id="msg-success">
+      ✓ Message envoyé ! On vous répond sous 48h.
+    </div>
+    <div class="feedback error" id="msg-error">
+      Une erreur est survenue. Merci de réessayer.
+    </div>
+
+    <button type="submit" class="btn-submit" id="btn-submit">Envoyer</button>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="navbar.js"></script>
+<script>
+  const EMAILJS_PUBLIC_KEY  = 'DaFfvR4y7hZqXSF05';
+  const EMAILJS_SERVICE_ID  = 'service_o3cwgye';
+  const EMAILJS_TEMPLATE_ID = 'template_vchvx2w';
+
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+  document.getElementById('contact-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const btn     = document.getElementById('btn-submit');
+    const success = document.getElementById('msg-success');
+    const error   = document.getElementById('msg-error');
+
+    success.style.display = 'none';
+    error.style.display   = 'none';
+
+    if (!this.checkValidity()) { this.reportValidity(); return; }
+
+    btn.disabled    = true;
+    btn.textContent = 'Envoi en cours…';
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        nom:       document.getElementById('nom').value,
+        prenom:    document.getElementById('prenom').value,
+        email:     document.getElementById('email').value,
+        telephone: document.getElementById('telephone').value || 'Non renseigné',
+        message:   document.getElementById('message').value,
+      });
+      success.style.display = 'block';
+      this.reset();
+    } catch (err) {
+      error.style.display = 'block';
+    } finally {
+      btn.disabled    = false;
+      btn.textContent = 'Envoyer';
+    }
+  });
+</script>
+
 </body>
 </html>
