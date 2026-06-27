@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accueil — MonSite</title>
+  <title>Accueil — Les Pommes d'amour</title>
   <link rel="stylesheet" href="navbar.css">
   <style>
     body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     main { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
     h1 { font-size: 2rem; margin-bottom: 12px; }
-    p { color: #555; line-height: 1.6; }
+    p { color: #ffffff; line-height: 1.6; }
   </style>
 </head>
 <body data-page="index">
@@ -17,12 +17,41 @@
   <!-- La navbar sera injectée ici automatiquement -->
   <div id="navbar-placeholder"></div>
 
-  <main>
-    <h1>Bienvenue sur MonSite</h1>
-    <p>Ceci est la page d'accueil. La navbar ci-dessus est chargée depuis <code>components/navbar.html</code> — elle est identique sur toutes les pages du site, et le lien "Accueil" est automatiquement surligné.</p>
-    <p>Redimensionne la fenêtre (ou ouvre sur mobile) pour voir le menu burger apparaître.</p>
-  </main>
+  
 
   <script src="navbar.js"></script>
+
+  <div id="navbar-placeholder"></div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Maraîcher bio depuis 2011</p>
+    <h1>Les Pommes d'Amour</h1>
+    <p class="hero-sub">Légumes de saison cultivés avec soin sur 6 hectares de terres limoneuses à Augerans, entre Besançon et Dole.</p>
+    <a href="legumes.html" class="hero-btn">Voir nos légumes</a>
+  </div>
+</div>
+
+<!-- Section présentation -->
+<div class="presentation">
+  <div class="presentation-inner">
+    <div class="presentation-text">
+      <p class="section-eyebrow">Notre histoire</p>
+      <h2>Une agriculture qui respecte la terre et ceux qui la mangent</h2>
+      <p>Installés depuis 2011 au cœur de la Franche-Comté, nous cultivons nos terres limoneuses en agriculture biologique. Nos sols sont amendés exclusivement avec du compost de fumier bovin issu d'une ferme voisine — pas d'engrais chimiques, pas de pesticides.</p>
+      <p>Chaque saison, nous faisons pousser une large gamme de légumes : tomates, courgettes, courges, carottes, salades, haricots, poireaux et bien d'autres. Nous proposons également des fruits anciens, des fraises et des melons charentais.</p>
+      <p>Notre engagement est simple : vous offrir des produits vrais, récoltés à maturité, qui ont le goût de ce qu'ils sont.</p>
+      <a href="contact.html" class="presentation-btn">Nous contacter</a>
+    </div>
+    <div class="presentation-photo">
+      <img src="Images-site/serre.jpg" alt="Intérieur de notre serre">
+    </div>
+  </div>
+</div>
+
+<script src="navbar.js"></script>
+
 </body>
 </html>
